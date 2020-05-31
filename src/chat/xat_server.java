@@ -16,6 +16,7 @@ import java.net.Socket;
  *
  * @author stanf
  */
+
 public class xat_server extends javax.swing.JFrame {
     
     static ServerSocket ss;
@@ -23,12 +24,15 @@ public class xat_server extends javax.swing.JFrame {
     static DataInputStream dis;
     static DataOutputStream dout;
 
+    
     /**
      * Creates new form xat_server
      */
     public xat_server() {
         initComponents();
     }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -39,15 +43,23 @@ public class xat_server extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         msgArea = new javax.swing.JTextArea();
         msgSend = new javax.swing.JButton();
         msgText = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
+        jPanel1.setBackground(new java.awt.Color(255, 203, 193));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "【ｖａｐｏｓｅｒｖｅｒ】", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Yu Gothic UI", 0, 12))); // NOI18N
+        jPanel1.setFocusable(false);
+        jPanel1.setFont(new java.awt.Font("Yu Gothic UI", 0, 11)); // NOI18N
+
+        msgArea.setEditable(false);
         msgArea.setColumns(20);
+        msgArea.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
         msgArea.setRows(5);
         jScrollPane1.setViewportView(msgArea);
 
@@ -60,43 +72,49 @@ public class xat_server extends javax.swing.JFrame {
         });
 
         msgText.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
+        msgText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                msgTextActionPerformed(evt);
+            }
+        });
 
-        jLabel1.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
-        jLabel1.setText("【ｖａｐｏｓｅｒｖｅｒ】");
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(msgText, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(msgSend, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(19, 19, 19))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(msgSend, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 17, Short.MAX_VALUE))
+                    .addComponent(msgText))
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(msgText, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(msgSend)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(99, 99, 99))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(msgSend, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
-                    .addComponent(msgText))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        pack();
+        setBounds(0, 0, 518, 438);
     }// </editor-fold>//GEN-END:initComponents
 
     private void msgSendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_msgSendActionPerformed
@@ -104,7 +122,7 @@ public class xat_server extends javax.swing.JFrame {
             // TODO add your handling code here:
         
         try{
-            String msg = "";
+            String msg = ""; 
             msg = msgText.getText();
             dout.writeUTF(msg);
             msgText.setText("");
@@ -113,6 +131,10 @@ public class xat_server extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_msgSendActionPerformed
+
+    private void msgTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_msgTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_msgTextActionPerformed
 
     /**
      * @param args the command line arguments
@@ -151,13 +173,13 @@ public class xat_server extends javax.swing.JFrame {
         try {
         String msgin = "";
         ss = new ServerSocket(1201);
-        s=ss.accept();
+        s = ss.accept();
         dis = new DataInputStream(s.getInputStream());
         dout = new DataOutputStream(s.getOutputStream());
         
         while(!msgin.equals("sair")){
             msgin = dis.readUTF();
-            msgArea.setText(msgArea.getText()+"\n Client: " + msgin);
+            msgArea.setText(msgArea.getText()+"\n V A P O C L I E N T: " + msgin);
             
             
         }
@@ -169,7 +191,7 @@ public class xat_server extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private static javax.swing.JTextArea msgArea;
     private javax.swing.JButton msgSend;
